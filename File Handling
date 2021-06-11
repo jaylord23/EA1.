@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void student1 ();
+void student2 ();
+
+//Global varriables
+FILE * dat;
+char name[50];
+int idnum, math, sci, eng, total, ave;
+
+int main()
+
+{
+    student1();
+    student2();
+
+    return 0;
+}
+
+//for creating student 1
+void student1 () {
+
+    dat = fopen("student_data1.txt","w"); //creating file 1
+    if (dat == NULL) {
+        printf("Error on Creating File.");
+        exit(1);
+    }
+
+    printf("Name : ");
+    scanf("%s", name);
+
+    printf("ID : ");
+    scanf(" %d", &idnum);
+
+    printf("SCI : ");
+    scanf("%d", &sci);
+
+    printf("MATH : ");
+    scanf("%d", &math);
+
+    printf("ENG : ");
+    scanf("%d", &eng);
+
+    total = sci + math + eng;
+    ave = total / 3;
+
+    //printing in file
+    fprintf(dat, "Name : %s\n", name);
+    fprintf(dat, "ID : %d\n", idnum);
+    fprintf(dat, "SCI : %d\n", sci);
+    fprintf(dat, "MATH : %d\n", math);
+    fprintf(dat, "ENG : %d\n", eng);
+    fprintf(dat, "Total Grade : %d\n", total);
+    fprintf(dat, "Total Average : %d\n", ave);
+
+    fclose(dat);
+
+}
+
+//for creating student 2
+void student2 () {
+
+    dat = fopen("student_data2.txt","w"); // creating file 2
+    if (dat == NULL) {
+        printf("Error on Creating File.");
+        exit(1);
+    }
+
+    printf("\n\nName : ");
+    scanf(" %s", name);
+
+    printf("ID : ");
+    scanf(" %d", &idnum);
+
+    printf("SCI : ");
+    scanf("%d", &sci);
+
+    printf("MATH : ");
+    scanf("%d", &math);
+
+    printf("ENG : ");
+    scanf("%d", &eng);
+
+    total = sci + math + eng;
+    ave = total / 3;
+
+    //printing in file
+    fprintf(dat, "Name : %s\n", name);
+    fprintf(dat, "ID : %d\n", idnum);
+    fprintf(dat, "SCI : %d\n", sci);
+    fprintf(dat, "MATH : %d\n", math);
+    fprintf(dat, "ENG : %d\n", eng);
+    fprintf(dat, "Total Grade : %d\n", total);
+    fprintf(dat, "Total Average : %d\n", ave);
+
+    fclose(dat);
+
+}
